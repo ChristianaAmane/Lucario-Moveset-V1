@@ -31,13 +31,13 @@ local replacementMoveset = {
     punch3 = { animationId = "rbxassetid://17889458563", startingTime = 0, endingTime = 2 },
     punch4 = { animationId = "rbxassetid://13378708199", startingTime = 0, endingTime = 2.2 },
     move1 = { animationId = "rbxassetid://140164642047188", startingTime = 6.8, endingTime = 7.97, speed = 1 },
-    move2 = { animationId = "rbxassetid://12460977270", startingTime = 0.27, endingTime = 8.37, speed = 0.85 },
-    move3 = { animationId = "rbxassetid://18440389930", startingTime = 0.3, endingTime = 2.2, speed = 3.14 },
-    move4 = { animationId = "rbxassetid://12463072679", startingTime = 0, endingTime = 3.5, speed = 0.86 },
+    move2 = { animationId = "rbxassetid://12460977270", startingTime = 0.56, endingTime = 8.37, speed = 0.74 },
+    move3 = { animationId = "rbxassetid://18440406788", startingTime = 0.3, endingTime = 2.2, speed = 3.14 },
+    move4 = { animationId = "rbxassetid://12463072679", startingTime = 0, endingTime = 3.5, speed = 0.69 },
     dash = { animationId = "rbxassetid://17838006839", startingTime = 0, endingTime = 1 },
-    ult = { animationId = "rbxassetid://18715986914", startingTime = 0, endingTime = 3 },
+    ult = { animationId = "rbxassetid://106778226674700", startingTime = 0, endingTime = 3 },
     wallcombo = { animationId = "rbxassetid://76530443909428", startingTime = 0, endingTime = 3, speed = 1.1 },
-    move5 = { animationId = "rbxassetid://18715986914", startingTime = 2, endingTime = 10, speed = 1 }
+    move5 = { animationId = "rbxassetid://18897118507", startingTime = 2, endingTime = 10, speed = 1 }
 }
 
 local function replaceMoveAnimation(humanoid)
@@ -88,7 +88,7 @@ local function replaceMoveAnimation(humanoid)
 
 				  task.wait(5.6)
 
-				  message = "It's super effective! | 超効果的ですよ！"
+				  message = "IT'S SUPER EFFECTIVE! | とても効果的です！"
                   game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
                 end
 
@@ -110,10 +110,10 @@ local textLabel = player.PlayerGui:FindFirstChild("ScreenGui") and player.Player
 local hotbarFrame = player.PlayerGui:FindFirstChild("Hotbar"):FindFirstChild("Backpack"):FindFirstChild("Hotbar")
 
 local toolTable = {
-    ["Normal Punch"] = "Aura Sphere: オーラスフィア",
-    ["Consecutive Punches"] = "Close Combat: 接近戦",
-    ["Shove"] = "Force Palm: フォースパーム",
-    ["Uppercut"] = "Low Kick: ローキック"
+    ["Normal Punch"] = "Aura Sphere",
+    ["Consecutive Punches"] = "Close Combat",
+    ["Shove"] = "Force Palm",
+    ["Uppercut"] = "Low Kick"
 }
 
 while true do
@@ -130,7 +130,7 @@ while true do
     end
 
     if textLabel and textLabel.Text == "SERIOUS MODE" then
-        local selectedName = "MAX AURA: マックスオーラ"
+        local selectedName = "MAX AURA"
         textLabel.Text = ""
         for i = 1, #selectedName do
             textLabel.Text = string.sub(selectedName, 1, i)
@@ -140,59 +140,3 @@ while true do
 
     game:GetService("RunService").Heartbeat:Wait()
 end
-
-local ultimatename = "MAX AURA: マックスオーラ"
-
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-
-local playerGui = player:WaitForChild("PlayerGui") -- dont edit these 3
-local screenGui = playerGui:WaitForChild("ScreenGui") -- dont edit these 3
-local magicHealth = screenGui:WaitForChild("MagicHealth") -- dont edit these 3
-
-local bary = magicHealth.Health -- dont edit this part
-
-local bary2 = bary.Bar.Bar -- dont edit this part
-
-bary2.ImageColor3 = Color3.fromRGB(110, 164, 187)
-
--- dont edit under this
-
-local textLabel = game.Players.LocalPlayer.PlayerGui.ScreenGui:WaitForChild("MagicHealth"):WaitForChild("TextLabel"):WaitForChild("TextLabel")
-
-textLabel:Destroy()
-
-local textLabel = magicHealth:WaitForChild("TextLabel")
-
-textLabel.FontFace = Font.new("rbxassetid://12187375716", Enum.FontWeight.Regular)
-textLabel.Text = ultimatename
-textLabel.TextSize = 26
-textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-textLabel.Position = textLabel.Position + UDim2.new(0, 0, 0, -15) -- Move text up
-
-local uistroke = Instance.new("UIStroke")
-uistroke.Parent = textLabel
-uistroke.Thickness = 1
-uistroke.Transparency = 0
-
-local bar = Instance.new("Frame")
-bar.AnchorPoint = Vector2.new(0.5, 1)
-bar.Position = UDim2.new(0.5, 0, 1, 0)
-bar.Size = UDim2.new(1, 0, 1, 0)
-bar.BackgroundTransparency = 0.5
-bar.Parent = magicHealth
-
-local highlighto = Instance.new("UIStroke")
-highlighto.Transparency = 0.5
-highlighto.Thickness = 1.5
-highlighto.Parent = bar
-
-for _, ez in pairs(bary:GetChildren()) do 
-    if ez.Name == "Bar" then 
-        ez.Parent = magicHealth
-    else
-        ez:Destroy()
-    end
-end
-
-bary2.Image = "rbxassetid://78556255932509"
