@@ -35,7 +35,7 @@ local replacementMoveset = {
     move3 = { animationId = "rbxassetid://18440406788", startingTime = 0.3, endingTime = 2.2, speed = 3.14 },
     move4 = { animationId = "rbxassetid://12463072679", startingTime = 0, endingTime = 3.5, speed = 0.69 },
     dash = { animationId = "rbxassetid://17838006839", startingTime = 0, endingTime = 1 },
-    ult = { animationId = "rbxassetid://106778226674700", startingTime = 0, endingTime = 3 },
+    ult = { animationId = "rbxassetid://18715986914", startingTime = 0, endingTime = 3 },
     wallcombo = { animationId = "rbxassetid://76530443909428", startingTime = 0, endingTime = 3, speed = 1.1 },
     move5 = { animationId = "rbxassetid://18897118507", startingTime = 2, endingTime = 10, speed = 1 }
 }
@@ -110,10 +110,10 @@ local textLabel = player.PlayerGui:FindFirstChild("ScreenGui") and player.Player
 local hotbarFrame = player.PlayerGui:FindFirstChild("Hotbar"):FindFirstChild("Backpack"):FindFirstChild("Hotbar")
 
 local toolTable = {
-    ["Normal Punch"] = "Aura Sphere",
-    ["Consecutive Punches"] = "Close Combat",
-    ["Shove"] = "Force Palm",
-    ["Uppercut"] = "Low Kick"
+    ["Normal Punch"] = "Aura Sphere (オーラスフィア)",
+    ["Consecutive Punches"] = "Close Combat (接近戦)",
+    ["Shove"] = "Force Palm (フォースパーム)",
+    ["Uppercut"] = "Low Kick (ローキック)"
 }
 
 while true do
@@ -130,7 +130,7 @@ while true do
     end
 
     if textLabel and textLabel.Text == "SERIOUS MODE" then
-        local selectedName = "MAX AURA"
+        local selectedName = "MAX AURA | マックスオーラ"
         textLabel.Text = ""
         for i = 1, #selectedName do
             textLabel.Text = string.sub(selectedName, 1, i)
